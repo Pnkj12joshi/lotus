@@ -11,12 +11,12 @@ const Navbar = () => {
   const [mobileServiceMenuOpen, setMobileServiceMenuOpen] = useState(false);
 
   const serviceItems = [
-    { label: 'Flex Printing', path: '/flex-printing' },
+    { label: 'Flex Printing', path: '/flexprinting' },
     { label: 'Welding', path: '/welding' },
-    { label: 'Iron Frame', path: '/iron-frame' },
-    { label: 'Letter Board', path: '/letter-board' },
-    { label: 'Standee Design', path: '/standee' },
-    { label: 'Banner Holding', path: '/banner-holding' },
+    { label: 'Iron Frame', path: '/ironframe' },
+    { label: 'Letter Board', path: '/letterboard' },
+    { label: 'Banner Holding', path: '/bannerholding' },
+    { label: 'Standee Design', path: '"/standee' },
   ];
 
   const handleNavigate = (path) => {
@@ -45,7 +45,7 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-8 text-base font-semibold relative">
         <li className="cursor-pointer hover:text-red-600 p-2" onClick={() => navigate('/')}>Home</li>
-        <li className="cursor-pointer hover:text-red-600 p-2" onClick={() => navigate('/')}>About</li>
+        <li className="cursor-pointer hover:text-red-600 p-2" onClick={() => navigate('/about')}>About</li>
 
         {/* Desktop Submenu */}
         <li
@@ -83,7 +83,7 @@ const Navbar = () => {
       {menuOpen && (
         <ul className="absolute top-16 left-0 w-full bg-white flex flex-col items-center gap-4 py-6 shadow-md z-40 text-base font-semibold">
           <li className="cursor-pointer hover:text-pink-600" onClick={() => handleNavigate('/')}>Home</li>
-          <li className="cursor-pointer hover:text-pink-600" onClick={() => handleNavigate('/')}>About</li>
+          <li className="cursor-pointer hover:text-pink-600" onClick={() => handleNavigate('/about')}>About</li>
 
           {/* Mobile Services Submenu */}
           <li className="flex flex-col items-center">
