@@ -28,11 +28,11 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center p-4 bg-white shadow-md fixed top-0 left-0 w-full z-50">
       {/* Logo */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <img
           src={lotuslogo}
           alt="logo"
-          className="h-12 w-12 object-cover rounded-full"
+          className="h-12 w-12"
         />
         <p
           className="text-2xl font-semibold hover:text-red-600 transition cursor-pointer"
