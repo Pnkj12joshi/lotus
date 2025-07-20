@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import lotuslogo from '../assets/lotus loggo.jpg';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
@@ -10,95 +10,73 @@ const Navbar = () => {
   const [serviceMenuOpen, setServiceMenuOpen] = useState(false);
   const [mobileServiceMenuOpen, setMobileServiceMenuOpen] = useState(false);
 
+  const dropdownRef = useRef(null);
+
   const serviceItems = [
     { label: 'Flex Printing', path: '/flexprinting' },
     { label: 'Welding', path: '/welding' },
     { label: 'Iron Frame', path: '/ironframe' },
     { label: 'Letter Board', path: '/letterboard' },
     { label: 'Banner Holding', path: '/bannerholding' },
-    { label: 'Standee Design', path: '"/standee' },
+    { label: 'Standee Design', path: '/standee' },
   ];
 
   const handleNavigate = (path) => {
     navigate(path);
     setMenuOpen(false);
+    setServiceMenuOpen(false);
     setMobileServiceMenuOpen(false);
   };
 
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setServiceMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className="flex justify-between items-center p-4 bg-white shadow-md fixed top-0 left-0 w-full z-50">
-      {/* Logo */}
-      <div className="flex items-center gap-3">
-        <img
-          src={lotuslogo}
-          alt="logo"
-          className="h-12 w-12"
-        />
-        <p
-          className="text-2xl font-semibold hover:text-red-600 transition cursor-pointer"
-          onClick={() => navigate('/')}
-        >
-          Lotus Fabrication
-        </p>
-      </div>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
+      <div className="flex items-center justify-between px-4 py-3 md:px-8">
+        {/* Logo and Brand */}
+        <div className="flex items-center gap-3">
+          <img src={lotuslogo} alt="Logo" className="h-12 w-12" />
+          <h1
+            onClick={() => navigate('/')}
+            className="text-2xl font-bold text-gray-800 cursor-pointer hover:text-red-600 transition"
+          >
+            Lotus Fabrication
+          </h1>
+        </div>
 
-      {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-8 text-base font-semibold relative">
-        <li className="cursor-pointer hover:text-red-600 p-2" onClick={() => navigate('/')}>Home</li>
-        <li className="cursor-pointer hover:text-red-600 p-2" onClick={() => navigate('/about')}>About</li>
-
-        {/* Desktop Submenu */}
-        <li
-          className="relative p-2 cursor-pointer hover:text-red-600"
-          onMouseEnter={() => setServiceMenuOpen(true)}
-          onMouseLeave={() => setServiceMenuOpen(false)}
-        >
-          Services
-          {serviceMenuOpen && (
-            <ul className="absolute top-12 left-0 bg-red-600 text-white rounded-md shadow-lg p-2 min-w-[180px] z-50">
-              {serviceItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="px-4 py-2 hover:text-black transition-colors cursor-pointer"
-                  onClick={() => handleNavigate(item.path)}
-                >
-                  {item.label}
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-
-        <li className="cursor-pointer bg-red-500 text-white rounded-md px-4 py-2 hover:text-black transition" onClick={() => navigate('/')}>
-          Contact
-        </li>
-      </ul>
-
-      {/* Hamburger Icon */}
-      <div className="md:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <ul className="absolute top-16 left-0 w-full bg-white flex flex-col items-center gap-4 py-6 shadow-md z-40 text-base font-semibold">
-          <li className="cursor-pointer hover:text-pink-600" onClick={() => handleNavigate('/')}>Home</li>
-          <li className="cursor-pointer hover:text-pink-600" onClick={() => handleNavigate('/about')}>About</li>
-
-          {/* Mobile Services Submenu */}
-          <li className="flex flex-col items-center">
-            <button
-              className="hover:text-pink-600"
-              onClick={() => setMobileServiceMenuOpen(!mobileServiceMenuOpen)}
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-8 text-[16px] font-medium">
+          <li onClick={() => handleNavigate('/')} className="hover:text-red-600 cursor-pointer">
+            Home
+          </li>
+          <li onClick={() => handleNavigate('/about')} className="hover:text-red-600 cursor-pointer">
+            About
+          </li>
+          <li className="relative cursor-pointer" ref={dropdownRef}>
+            <div
+              onClick={() => setServiceMenuOpen(!serviceMenuOpen)}
+              className="hover:text-red-600 transition flex items-center gap-1"
             >
               Services
-            </button>
-            {mobileServiceMenuOpen && (
-              <ul className="mt-2 bg-red-600 text-white rounded-md flex flex-col items-center w-full">
+            </div>
+            {serviceMenuOpen && (
+              <ul className="absolute top-8 left-0 bg-white rounded-lg shadow-lg border z-50 w-48 mt-2 py-2">
                 {serviceItems.map((item, index) => (
                   <li
                     key={index}
-                    className="py-2 px-4 w-full text-center hover:text-black transition-colors cursor-pointer"
+                    className="px-4 py-2 hover:bg-red-500 hover:text-white transition cursor-pointer"
                     onClick={() => handleNavigate(item.path)}
                   >
                     {item.label}
@@ -107,9 +85,61 @@ const Navbar = () => {
               </ul>
             )}
           </li>
-
-          <li className="cursor-pointer hover:text-pink-600" onClick={() => handleNavigate('/')}>Contact</li>
+          <li
+            onClick={() => handleNavigate('/contact')}
+            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition cursor-pointer"
+          >
+            Contact
+          </li>
         </ul>
+
+        {/* Mobile Menu Icon */}
+        <div className="md:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md px-6 py-4">
+          <ul className="flex flex-col gap-4 text-base font-medium">
+            <li onClick={() => handleNavigate('/')} className="hover:text-red-600 cursor-pointer">
+              Home
+            </li>
+            <li onClick={() => handleNavigate('/about')} className="hover:text-red-600 cursor-pointer">
+              About
+            </li>
+            {/* Mobile Dropdown Toggle */}
+            <li>
+              <div
+                onClick={() => setMobileServiceMenuOpen(!mobileServiceMenuOpen)}
+                className="hover:text-red-600 cursor-pointer flex justify-between items-center"
+              >
+                <span>Services</span>
+                <span>{mobileServiceMenuOpen ? '▲' : '▼'}</span>
+              </div>
+              {mobileServiceMenuOpen && (
+                <ul className="mt-2 bg-gray-100 rounded-md px-2 py-2">
+                  {serviceItems.map((item, index) => (
+                    <li
+                      key={index}
+                      className="py-2 px-2 hover:bg-red-500 hover:text-white rounded-md cursor-pointer"
+                      onClick={() => handleNavigate(item.path)}
+                    >
+                      {item.label}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+            <li
+              onClick={() => handleNavigate('/contact')}
+              className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-black cursor-pointer text-center"
+            >
+              Contact
+            </li>
+          </ul>
+        </div>
       )}
     </nav>
   );

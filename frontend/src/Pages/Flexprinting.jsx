@@ -1,14 +1,20 @@
 import React from 'react';
+import adverting from "../assets/advertisg flex.webp";
+import Backlit from "../assets/Backlit Flex Boards.jpeg";
+import rollup from "../assets/Roll-Up Standees.jpg";
+import retail from "../assets/Retail Flex Signage.webp";
+import political from "../assets/political flex.jpg";
+import flexbanner from "../assets/flex banner.webp";
 
 const Flexprinting = () => {
   return (
-    <div className="  min-h-screen p-6">
+    <div className="min-h-screen p-6">
       {/* Hero Section */}
       <section className="text-center max-w-5xl mx-auto mb-12 mt-[100px]">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
           Flex Printing Services 
         </h1>
-        <p className="text-lg md:text-xl ">
+        <p className="text-lg md:text-xl">
           Affordable, durable, and eye-catching flex banners, hoardings, posters, and signage for events, promotions, shops, and more.
         </p>
       </section>
@@ -19,32 +25,32 @@ const Flexprinting = () => {
           {
             title: "Event Flex Banners",
             desc: "High-quality banners for product launches, weddings, trade fairs, and more.",
-            img: "/images/flex-banner.jpg",
+            img: flexbanner,
           },
           {
             title: "Political Flex Posters",
             desc: "Grab voter attention with impactful political banners printed in bulk.",
-            img: "/images/political-banner.jpg",
+            img: political,
           },
           {
             title: "Advertising Hoardings",
             desc: "Large format hoardings to boost visibility in high-traffic areas.",
-            img: "/images/event-hoarding.jpg",
+            img: adverting,
           },
           {
             title: "Retail Flex Signage",
             desc: "Display your offers, new arrivals, or branding with bold and colorful prints.",
-            img: "/images/shop-signage.jpg",
+            img: retail,
           },
           {
             title: "Backlit Flex Boards",
             desc: "Perfect for nighttime promotions — light up your message with backlit flex.",
-            img: "/images/backlit.jpg",
+            img: Backlit,
           },
           {
             title: "Roll-Up Standees",
             desc: "Portable, compact, and professional standees for events and exhibitions.",
-            img: "/images/flex-standee.jpg",
+            img: rollup,
           },
         ].map((item, index) => (
           <div
@@ -70,26 +76,18 @@ const Flexprinting = () => {
       {/* Detailed Services Section */}
       <section className="max-w-5xl mx-auto mb-16">
         <h2 className="text-3xl font-bold mb-4">Our Flex Printing Solutions</h2>
-        <ul className="space-y-4  text-lg">
-          <li>
-            ✅ **Eco-Solvent Flex Printing** – Bright and eco-friendly prints with high-resolution output.
-          </li>
-          <li>
-            ✅ **Blackout Flex** – Ideal for front-lit and backlit applications, prevents image transparency.
-          </li>
-          <li>
-            ✅ **Star Flex** – Glossy, durable, waterproof, and affordable — perfect for general advertising.
-          </li>
-          <li>
-            ✅ **Canvas Flex** – Premium matte texture used for indoor events and artistic displays.
-          </li>
+        <ul className="space-y-4 text-lg">
+          <li>✅ <strong>Eco-Solvent Flex Printing</strong> – Bright and eco-friendly prints with high-resolution output.</li>
+          <li>✅ <strong>Blackout Flex</strong> – Ideal for front-lit and backlit applications, prevents image transparency.</li>
+          <li>✅ <strong>Star Flex</strong> – Glossy, durable, waterproof, and affordable — perfect for general advertising.</li>
+          <li>✅ <strong>Canvas Flex</strong> – Premium matte texture used for indoor events and artistic displays.</li>
         </ul>
       </section>
 
       {/* Why Choose Us */}
       <section className="bg-white text-red-700 p-8 rounded-2xl shadow-md max-w-6xl mx-auto mb-16">
         <h2 className="text-3xl font-bold mb-4 text-center">Why Choose Our Flex Printing Services?</h2>
-        <div className="grid sm:grid-cols-1  gap-6 ">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
             <h3 className="text-xl font-semibold mb-2">✨ High Resolution</h3>
             <p>We use top-tier printers for ultra-sharp and vibrant prints.</p>
@@ -123,19 +121,19 @@ const Flexprinting = () => {
         <div className="space-y-6">
           <div>
             <h4 className="text-xl font-semibold">Q: What is the minimum order for flex printing?</h4>
-            <p className="">We cater to both bulk and single-piece orders — no minimum quantity.</p>
+            <p>We cater to both bulk and single-piece orders — no minimum quantity.</p>
           </div>
           <div>
             <h4 className="text-xl font-semibold">Q: Do you offer design support?</h4>
-            <p className="">Yes, we offer free basic design and layout support for your prints.</p>
+            <p>Yes, we offer free basic design and layout support for your prints.</p>
           </div>
           <div>
             <h4 className="text-xl font-semibold">Q: How long does it take to print and deliver?</h4>
-            <p className="">Standard orders are ready within 4–6 hours. We also offer same-day delivery.</p>
+            <p>Standard orders are ready within 4–6 hours. We also offer same-day delivery.</p>
           </div>
           <div>
             <h4 className="text-xl font-semibold">Q: Can I print custom sizes?</h4>
-            <p className="">Absolutely! We support all sizes, from A4 to large hoardings.</p>
+            <p>Absolutely! We support all sizes, from A4 to large hoardings.</p>
           </div>
         </div>
       </section>
@@ -144,7 +142,7 @@ const Flexprinting = () => {
       <section className="bg-white text-red-800 text-center p-10 rounded-xl shadow-lg">
         <h2 className="text-3xl md:text-4xl font-bold mb-3">Ready to Print Your Flex?</h2>
         <p className="text-lg mb-5">Get in touch with us for quick, affordable, and premium flex printing.</p>
-        <button className="bg-red-600 hover:bg-red-700  font-semibold px-8 py-3 rounded-full transition-all text-white">
+        <button className="bg-red-600 hover:bg-red-700 font-semibold px-8 py-3 rounded-full transition-all text-white">
           Get a Free Quote
         </button>
       </section>
