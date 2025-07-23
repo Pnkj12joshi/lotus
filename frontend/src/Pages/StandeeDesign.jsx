@@ -1,5 +1,27 @@
 import React from 'react';
+import eventstandee from "../assets/Event Standees.webp";
+import retail from "../assets/Retail Promotional Standees.webp";
+import productlaunch from "../assets/Product Launch Standees.webp";
+
 const StandeeDesign = () => {
+  const standeeData = [
+    {
+      title: "Event Standees",
+      desc: "Perfect for corporate events, conferences, and presentations.",
+      img: eventstandee,
+    },
+    {
+      title: "Retail Promotional Standees",
+      desc: "Draw attention to offers and products inside your store.",
+      img: retail,
+    },
+    {
+      title: "Product Launch Standees",
+      desc: "Create buzz and visibility around new product launches.",
+      img: productlaunch,
+    },
+  ];
+
   return (
     <div className="min-h-screen p-6">
       {/* Hero Section */}
@@ -14,27 +36,14 @@ const StandeeDesign = () => {
 
       {/* Grid of Standee Types */}
       <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
-        {[
-          {
-            title: "Event Standees",
-            desc: "Perfect for corporate events, conferences, and presentations.",
-          },
-          {
-            title: "Retail Promotional Standees",
-            desc: "Draw attention to offers and products inside your store.",
-          },
-          {
-            title: "Product Launch Standees",
-            desc: "Create buzz and visibility around new product launches.",
-           
-          },
-        ].map((item, index) => (
+        {standeeData.map((item, index) => (
           <div
             key={index}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
           >
             <div className="relative h-48 w-full overflow-hidden">
               <img
+                src={item.img}
                 alt={item.title}
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
