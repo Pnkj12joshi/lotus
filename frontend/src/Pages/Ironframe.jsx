@@ -1,7 +1,27 @@
 import React from 'react';
-
+import Outdooriron from "../assets/product-jpeg.png";
+import evantframe from "../assets/Wedding-Beads.jpg";
+import shopfront from "../assets/unique-vintage-blank-signage-wrought-iron-bracket-perfect-old-town-shops-unique-vintage-blank-signage-wrought-iron-390118241.jpg";
 
 const Ironframe = () => {
+  const services = [
+    {
+      title: "Outdoor Iron Boards",
+      desc: "Perfect for street-level advertising, highly resistant to weather conditions.",
+      image: Outdooriron,
+    },
+    {
+      title: "Event Iron Frames",
+      desc: "Use for temporary installations during fairs, rallies, and public gatherings.",
+      image: evantframe,
+    },
+    {
+      title: "Shopfront Iron Signage",
+      desc: "Promote products or discounts using rigid iron frame boards outside your shop.",
+      image: shopfront,
+    },
+  ];
+
   return (
     <div className="min-h-screen p-6">
       {/* Hero Section */}
@@ -16,29 +36,14 @@ const Ironframe = () => {
 
       {/* Grid of Services */}
       <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
-        {[
-          {
-            title: "Outdoor Iron Boards",
-            desc: "Perfect for street-level advertising, highly resistant to weather conditions.",
-            
-          },
-          {
-            title: "Event Iron Frames",
-            desc: "Use for temporary installations during fairs, rallies, and public gatherings.",
-           
-          },
-          {
-            title: "Shopfront Iron Signage",
-            desc: "Promote products or discounts using rigid iron frame boards outside your shop.",
-            
-          },
-        ].map((item, index) => (
+        {services.map((item, index) => (
           <div
             key={index}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
           >
             <div className="relative h-48 w-full overflow-hidden">
               <img
+                src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />

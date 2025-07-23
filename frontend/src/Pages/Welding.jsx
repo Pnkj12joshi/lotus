@@ -1,5 +1,27 @@
 import React from 'react';
+import structurewelding from "../assets/images.jpg";
+import customfabrication from "../assets/customfabrication.jpg";
+import onsitewelding from "../assets/onsitewelding.jpg";
+
 const Welding = () => {
+  const weldingTypes = [
+    {
+      title: "Structural Welding",
+      desc: "Reinforced welding for heavy-duty steel and metal structures.",
+      image: structurewelding,
+    },
+    {
+      title: "Custom Fabrication",
+      desc: "Tailored welding for gates, frames, racks, and more.",
+      image: customfabrication,
+    },
+    {
+      title: "On-Site Welding",
+      desc: "Portable welding for emergency repairs or construction projects.",
+      image: onsitewelding,
+    },
+  ];
+
   return (
     <div className="min-h-screen p-6">
       {/* Hero Section */}
@@ -14,28 +36,14 @@ const Welding = () => {
 
       {/* Grid of Welding Types */}
       <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
-        {[
-          {
-            title: "Structural Welding",
-            desc: "Reinforced welding for heavy-duty steel and metal structures.",
-          },
-          {
-            title: "Custom Fabrication",
-            desc: "Tailored welding for gates, frames, racks, and more.",
-        
-          },
-          {
-            title: "On-Site Welding",
-            desc: "Portable welding for emergency repairs or construction projects.",
-
-          },
-        ].map((item, index) => (
+        {weldingTypes.map((item, index) => (
           <div
             key={index}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
           >
             <div className="relative h-48 w-full overflow-hidden">
               <img
+                src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />

@@ -1,6 +1,27 @@
 import React from 'react';
+import eventbanner from "../assets/eventbannerholding.jpg";
+import political from "../assets/politicalbanner.jpg";
+import street from "../assets/streetpromotion.jpg";
 
 const Bannerholding = () => {
+  const services = [
+    {
+      title: "Event Banner Holding",
+      desc: "Display promotional banners at exhibitions, trade shows, and local events.",
+      image: eventbanner,
+    },
+    {
+      title: "Political Campaign Holding",
+      desc: "Engage the public during rallies and marches with clear message banners.",
+      image: political,
+    },
+    {
+      title: "Street Promotion Holding",
+      desc: "Target busy streets with eye-level banner holding for maximum visibility.",
+      image: street,
+    },
+  ];
+
   return (
     <div className="min-h-screen p-6">
       {/* Hero Section */}
@@ -14,40 +35,43 @@ const Bannerholding = () => {
       </section>
 
       {/* Grid of Holding Types */}
-      <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
-        {[
-          {
-            title: "Event Banner Holding",
-            desc: "Display promotional banners at exhibitions, trade shows, and local events.",
-          },
-          {
-            title: "Political Campaign Holding",
-            desc: "Engage the public during rallies and marches with clear message banners.",
-          },
-          {
-            title: "Street Promotion Holding",
-            desc: "Target busy streets with eye-level banner holding for maximum visibility.",
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
-          >
-            <div className="relative h-48 w-full overflow-hidden">
-              <img
-               
-                alt={item.title}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-            </div>
-            <div className="p-5">
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-700">{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </section>
+ <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
+  {[
+    {
+      title: "Event Banner Holding",
+      desc: "Display promotional banners at exhibitions, trade shows, and local events.",
+      image: eventbanner,
+    },
+    {
+      title: "Political Campaign Holding",
+      desc: "Engage the public during rallies and marches with clear message banners.",
+      image: political,
+    },
+    {
+      title: "Street Promotion Holding",
+      desc: "Target busy streets with eye-level banner holding for maximum visibility.",
+      image: street,
+    },
+  ].map((item, index) => (
+    <div
+      key={index}
+      className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
+    >
+      <div className="relative h-56 w-full overflow-hidden">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
+      </div>
+      <div className="p-5">
+        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+        <p className="text-sm text-gray-700">{item.desc}</p>
+      </div>
+    </div>
+  ))}
+</section>
+
 
       {/* Why Choose Our Banner Holding */}
       <section className="bg-white text-green-800 p-8 rounded-2xl shadow-md max-w-6xl mx-auto mb-16">
