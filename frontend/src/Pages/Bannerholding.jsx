@@ -4,7 +4,7 @@ import political from "../assets/politicalbanner.jpg";
 import street from "../assets/streetpromotion.jpg";
 
 const Bannerholding = () => {
-  const services = [
+  const holdingTypes = [
     {
       title: "Event Banner Holding",
       desc: "Display promotional banners at exhibitions, trade shows, and local events.",
@@ -30,50 +30,33 @@ const Bannerholding = () => {
           Banner Holding Services
         </h1>
         <p className="text-lg md:text-xl">
-          Professional banner holding services for political rallies, events, brand promotions, and street campaigns — make your message move with impact.
+          Professional banner holding for rallies, events, and street campaigns — let your message move with impact.
         </p>
       </section>
 
       {/* Grid of Holding Types */}
- <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
-  {[
-    {
-      title: "Event Banner Holding",
-      desc: "Display promotional banners at exhibitions, trade shows, and local events.",
-      image: eventbanner,
-    },
-    {
-      title: "Political Campaign Holding",
-      desc: "Engage the public during rallies and marches with clear message banners.",
-      image: political,
-    },
-    {
-      title: "Street Promotion Holding",
-      desc: "Target busy streets with eye-level banner holding for maximum visibility.",
-      image: street,
-    },
-  ].map((item, index) => (
-    <div
-      key={index}
-      className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
-    >
-      <div className="relative h-56 w-full overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
-      </div>
-      <div className="p-5">
-        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-        <p className="text-sm text-gray-700">{item.desc}</p>
-      </div>
-    </div>
-  ))}
-</section>
+      <section className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
+        {holdingTypes.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white text-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300"
+          >
+            <div className="relative h-56 w-full overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-700">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </section>
 
-
-      {/* Why Choose Our Banner Holding */}
+      {/* Why Choose Section */}
       <section className="bg-white text-green-800 p-8 rounded-2xl shadow-md max-w-6xl mx-auto mb-16">
         <h2 className="text-3xl font-bold mb-4 text-center">Why Choose Our Banner Holding Services?</h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

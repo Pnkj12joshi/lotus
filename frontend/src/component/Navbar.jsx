@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import lotuslogo from '../assets/lotus loggo.jpg';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { IoMdClose } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import lotuslogo from "../assets/lotus loggo.jpg";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,12 +13,12 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const serviceItems = [
-    { label: 'Flex Printing', path: '/flexprinting' },
-    { label: 'Welding', path: '/welding' },
-    { label: 'Iron Frame', path: '/ironframe' },
-    { label: 'Letter Board', path: '/letterboard' },
-    { label: 'Banner Holding', path: '/bannerholding' },
-    { label: 'Standee Design', path: '/standee' },
+    { label: "Flex Printing", path: "/flexprinting" },
+    { label: "Welding", path: "/welding" },
+    { label: "Iron Frame", path: "/ironframe" },
+    { label: "Letter Board", path: "/letterboard" },
+    { label: "Banner Holding", path: "/bannerholding" },
+    { label: "Standee Design", path: "/standee" },
   ];
 
   const handleNavigate = (path) => {
@@ -36,9 +36,9 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -49,19 +49,25 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <img src={lotuslogo} alt="Logo" className="h-12 w-12" />
           <h1
-            onClick={() => navigate('/')}
-            className="text-2xl font-bold text-gray-800 cursor-pointer hover:text-red-600 transition"
+            onClick={() => navigate("/")}
+            className="text-2xl md:text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-yellow-500 cursor-pointer hover:scale-105 transition-all duration-300 drop-shadow-sm"
           >
-            Lotus Fabrication
+            LOTUS FABRICATION
           </h1>
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-[16px] font-medium">
-          <li onClick={() => handleNavigate('/')} className="hover:text-red-600 cursor-pointer">
+          <li
+            onClick={() => handleNavigate("/")}
+            className="hover:text-red-600 cursor-pointer"
+          >
             Home
           </li>
-          <li onClick={() => handleNavigate('/about')} className="hover:text-red-600 cursor-pointer">
+          <li
+            onClick={() => handleNavigate("/about")}
+            className="hover:text-red-600 cursor-pointer"
+          >
             About
           </li>
           <li className="relative cursor-pointer" ref={dropdownRef}>
@@ -86,7 +92,7 @@ const Navbar = () => {
             )}
           </li>
           <li
-            onClick={() => handleNavigate('/contact')}
+            onClick={() => handleNavigate("/contact")}
             className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition cursor-pointer"
           >
             Contact
@@ -94,7 +100,10 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+        <div
+          className="md:hidden text-2xl cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           {menuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
         </div>
       </div>
@@ -103,10 +112,16 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md px-6 py-4">
           <ul className="flex flex-col gap-4 text-base font-medium">
-            <li onClick={() => handleNavigate('/')} className="hover:text-red-600 cursor-pointer">
+            <li
+              onClick={() => handleNavigate("/")}
+              className="hover:text-red-600 cursor-pointer"
+            >
               Home
             </li>
-            <li onClick={() => handleNavigate('/about')} className="hover:text-red-600 cursor-pointer">
+            <li
+              onClick={() => handleNavigate("/about")}
+              className="hover:text-red-600 cursor-pointer"
+            >
               About
             </li>
             {/* Mobile Dropdown Toggle */}
@@ -116,7 +131,7 @@ const Navbar = () => {
                 className="hover:text-red-600 cursor-pointer flex justify-between items-center"
               >
                 <span>Services</span>
-                <span>{mobileServiceMenuOpen ? '▲' : '▼'}</span>
+                <span>{mobileServiceMenuOpen ? "▲" : "▼"}</span>
               </div>
               {mobileServiceMenuOpen && (
                 <ul className="mt-2 bg-gray-100 rounded-md px-2 py-2">
@@ -133,7 +148,7 @@ const Navbar = () => {
               )}
             </li>
             <li
-              onClick={() => handleNavigate('/contact')}
+              onClick={() => handleNavigate("/contact")}
               className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-black cursor-pointer text-center"
             >
               Contact

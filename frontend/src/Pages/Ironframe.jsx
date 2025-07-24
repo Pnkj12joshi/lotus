@@ -70,7 +70,7 @@ const Ironframe = () => {
             <p>Prints are UV-coated and waterproof, ensuring durability in any season.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2">📐 Custom Sizes</h3>
+            <h3 className="text-xl font-semibold mb-2">📀 Custom Sizes</h3>
             <p>We provide iron frames in any size, whether big or small.</p>
           </div>
           <div>

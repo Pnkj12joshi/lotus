@@ -103,23 +103,51 @@ const Dashboard = () => {
 
   return (
     <div className="mt-24 grid grid-cols-1 gap-20 px-4 lg:px-16">
-      {/* Hero Slider */}
-      <section>
-        <Slider {...heroSliderSettings}>
-          {[sliderone, slidertwo, sliderthree].map((img, index) => (
-            <div
-              key={index}
-              className="w-full h-[300px] md:h-[380px] lg:h-[450px]"
-            >
-              <img
-                src={img}
-                alt={`slide-${index}`}
-                className="w-full h-full object-cover object-center rounded-xl shadow-xl"
-              />
-            </div>
-          ))}
-        </Slider>
-      </section>
+<section className="bg-gradient-to-br from-white via-gray-50 to-white rounded-2xl shadow-xl px-6 py-20">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+
+    {/* Text Content */}
+    <div className="space-y-6">
+      <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-800">
+        <span className="text-red-500">Creative Printing</span> That Builds Your Brand
+      </h1>
+      <p className="text-lg sm:text-xl text-gray-700">
+        We craft vibrant flex prints, eye-catching standees, and strong banners to help your business stand out. Let your brand speak loud and clear with every visual.
+      </p>
+      <button className="mt-4 bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300">
+        Let’s Get Started
+      </button>
+    </div>
+
+    {/* Image Slider Section */}
+    <div className="flex justify-center w-full">
+      <Slider
+        dots={true}
+        infinite={true}
+        autoplay={true}
+        speed={600}
+        autoplaySpeed={3000}
+        slidesToShow={1}
+        slidesToScroll={1}
+        arrows={false}
+        className="w-full max-w-md rounded-xl overflow-hidden shadow-lg"
+      >
+        {[sliderone, slidertwo, sliderthree].map((img, index) => (
+          <div key={index}>
+            <img
+              src={img}
+              alt={`slide-${index}`}
+              className="w-full h-72 object-cover rounded-xl"
+            />
+          </div>
+        ))}
+      </Slider>
+    </div>
+  </div>
+</section>
+
+
+
 
       {/* Vision Section */}
       <section className="text-center max-w-8xl mx-auto grid gap-4">
@@ -150,37 +178,28 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-     <section className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl overflow-hidden shadow-xl px-6 py-12">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-    
-    {/* Text Section */}
-    <div className="space-y-6">
-      <h2 className="text-4xl font-extrabold text-white">Why Choose Us?</h2>
-      <ul className="space-y-5 text-lg">
-        {[
-          "High-Quality Work: Precision and excellence in every project.",
-          "Affordable Pricing: Top-quality service that fits your budget.",
-          "Timely Delivery: We value your time and deliver fast.",
-        ].map((text, idx) => (
-          <li key={idx} className="flex items-start gap-4">
-            <FaCheckCircle className="text-2xl text-white mt-1" />
-            <span>{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    {/* Why Choose Us Section */}
+<section className="py-16 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-10">
+      Why Choose Us?
+    </h2>
 
-    {/* Image Section */}
-    <div className="flex justify-center">
-      <img
-        src={contactus}
-        alt="Why choose us"
-        className="rounded-xl w-full max-w-md object-cover shadow-lg"
-      />
-    </div>
+    <ul className="space-y-6 text-lg text-gray-700 text-left sm:text-center">
+      {[
+        "High-Quality Work: Precision and excellence in every project.",
+        "Affordable Pricing: Top-quality service that fits your budget.",
+        "Timely Delivery: We value your time and deliver fast.",
+      ].map((item, index) => (
+        <li key={index} className="flex items-start justify-start gap-3 sm:justify-center">
+          <FaCheckCircle className="text-green-600 mt-1 text-xl" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
+
 
 
       {/* Testimonials */}
