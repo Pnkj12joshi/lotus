@@ -3,128 +3,130 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div className="mt-[100px] flex flex-col gap-10 items-center justify-center w-full">
-
-      {/* Who We Are Section */}
-      <section className="max-w-6xl px-4 text-center">
-        <h1 className="text-4xl font-bold text-blue-800 mb-4">About Us</h1>
-        <p className="text-lg text-gray-700 leading-relaxed text-justify">
-          At <span className="font-semibold">Branding Hub</span>, we specialize in delivering
-          high-quality flex printing, iron frame work, and promotional material services. With
-          years of experience and a passion for creativity, our team is dedicated to helping you
-          build a powerful visual identity for your business. Whether you need banners, standees,
-          or customized signage, we turn your vision into reality with precision and style.
+    <div className="mt-[80px] w-full flex flex-col gap-20 items-center justify-center text-gray-800">
+      {/* Header Section */}
+      <section className="max-w-6xl px-4 text-center mt-8">
+        <h1 className="text-5xl font-bold text-black mb-6">
+          About Lotus Fabrication
+        </h1>
+        <p className="text-lg leading-relaxed text-gray-700 text-justify">
+          <span className="font-semibold text-black">Lotus Fabrication</span>{" "}
+          is a creative powerhouse specializing in high-quality flex printing,
+          iron fabrication, and promotional display solutions. With a
+          commitment to precision and innovation, we transform ideas into
+          impactful visuals that elevate your brand presence. From banners and
+          standees to durable iron frame works, we offer customized,
+          cost-effective, and visually appealing solutions for all your
+          branding needs.
         </p>
       </section>
 
-      {/* Our Mission */}
-      <section className="bg-[hsl(160,11%,89%)] w-full py-10 px-4 text-center">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-blue-700 mb-3">Our Mission</h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            Our mission is to provide businesses with impactful and affordable branding solutions.
-            We are committed to quality, innovation, and timely service that helps our clients
-            succeed and stand out in the market.
-          </p>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
+      {/* Mission + Vision Section in Grid */}
       <section className="w-full px-4 max-w-6xl">
-        <div className="bg-red-500 text-white p-8 rounded-2xl">
-          <h2 className="text-3xl font-bold text-center mb-6">Why Choose Us?</h2>
-          <ul className="space-y-4 text-left sm:text-lg">
-            {[
-              "High-Quality Prints with rich colors and durability.",
-              "Creative Designs tailored to your business needs.",
-              "Affordable Pricing that fits your budget.",
-              "Timely Delivery every time without compromise.",
-            ].map((item, index) => (
-              <li className="flex items-start gap-3" key={index}>
-                <FaCheckCircle className="mt-1 text-xl" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="grid md:grid-cols-2 gap-10">
+          {[
+            {
+              title: "Our Mission",
+              text: "To deliver top-tier visual branding and fabrication services with unmatched reliability, creativity, and speed. We aim to empower businesses with standout promotional materials that leave lasting impressions.",
+            },
+            {
+              title: "Our Vision",
+              text: "To become a nationwide leader in fabrication and promotional services, recognized for quality, trust, and creative excellence that redefines how brands engage with their audience.",
+            },
+          ].map((block, i) => (
+            <div
+              key={i}
+              className="bg-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.02] transition duration-300 ease-in-out"
+            >
+              <h2 className="text-3xl font-bold text-red-500 mb-4">
+                {block.title}
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {block.text}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-12 px-4">
+      {/* Why Choose Us - Grid Cards */}
+      <section className="w-full px-4 max-w-6xl">
+        <h2 className="text-3xl font-bold text-center text-black mb-10">
+          Why Choose Lotus Fabrication?
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            "Vibrant, high-resolution prints for maximum impact.",
+            "Customized designs that reflect your brand identity.",
+            "Iron frame work built for strength and durability.",
+            "Affordable pricing with uncompromised quality.",
+            "Prompt delivery with consistent performance.",
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-4 bg-gray-100 p-6 rounded-xl shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:bg-red-500 hover:text-white"
+            >
+              <FaCheckCircle className="text-2xl mt-1 text-red-500 group-hover:text-white" />
+              <span className="text-lg">{item}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <h2 className="text-4xl font-bold">Get in Touch</h2>
-          <p className="mt-2 text-lg">
-            Have a question or need a custom quote? Fill out the form and our team will get back to
-            you promptly.
+          <h2 className="text-4xl font-bold">Let’s Talk</h2>
+          <p className="mt-3 text-lg">
+            Need a quote or have a custom project in mind? Reach out and we’ll
+            bring your vision to life.
           </p>
         </div>
 
         <form
-          className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 bg-white text-gray-800 p-8 rounded-2xl shadow-lg"
+          className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 bg-white text-gray-800 p-8 rounded-3xl shadow-2xl"
           onSubmit={(e) => {
             e.preventDefault();
             alert("Form submitted!");
           }}
         >
-          {/* Name */}
-          <div>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
-          </div>
-
-          {/* Phone */}
-          <div>
-            <input
-              type="tel"
-              required
-              placeholder="Enter your phone number"
-              maxLength={10}
-              pattern="\d{10}"
-              inputMode="numeric"
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
-          </div>
-
-          {/* Subject */}
-          <div>
-            <input
-              type="text"
-              placeholder="Subject (optional)"
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
-          </div>
-
-          {/* Message */}
-          <div className="md:col-span-2">
-            <textarea
-              rows="5"
-              placeholder="Write your message..."
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
-            ></textarea>
-          </div>
-
-          {/* Submit Button */}
-          <div className="md:col-span-2 flex justify-center">
+          <input
+            type="text"
+            placeholder="Your Name"
+            required
+            className="col-span-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            required
+            className="col-span-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            required
+            pattern="\d{10}"
+            maxLength={10}
+            className="col-span-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="text"
+            placeholder="Subject (optional)"
+            className="col-span-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <textarea
+            rows="5"
+            placeholder="Write your message..."
+            required
+            className="col-span-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
+          ></textarea>
+          <div className="col-span-2 flex justify-center">
             <button
               type="submit"
-              className="bg-red-500 text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-red-600 transition duration-300"
+              className="bg-red-500 hover:bg-red-600 text-white px-10 py-3 rounded-md text-lg font-semibold transition duration-300"
             >
-              Submit
+              Send Message
             </button>
           </div>
         </form>

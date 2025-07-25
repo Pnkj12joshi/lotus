@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import sliderone from "../assets/eco-solvent-printing-machine-4311410_1280.jpg";
 import slidertwo from "../assets/c-lipped-channel-5528517_1280.jpg";
 import sliderthree from "../assets/standee design.avif";
-import contactus from "../assets/contactus.jpg";
 import brandone from "../assets/branding hub brand.jpg";
 import brandtwo from "../assets/gk advertising brands.png";
 import brandthree from "../assets/kgn-publicity brands.jpg";
@@ -178,6 +177,51 @@ const Dashboard = () => {
         </div>
       </section>
 
+      <section className="bg-gradient-to-br from-white via-gray-50 to-white py-20 px-6">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
+      Our Printing Process
+    </h2>
+    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+      From concept to completion, our printing process ensures every design is brought to life with precision, quality, and consistency.
+    </p>
+
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      {[
+        {
+          step: 'Design Consultation',
+          desc: 'We discuss your brand, vision, and business goals to kick off the process with clarity.',
+        },
+        {
+          step: 'Artwork Preparation',
+          desc: 'Our designers craft pixel-perfect, high-resolution designs tailored to your brand.',
+        },
+        {
+          step: 'Flex & Media Selection',
+          desc: 'We help you choose the ideal materials and print techniques based on your needs.',
+        },
+        {
+          step: 'Printing & Finishing',
+          desc: 'With precision machines and expert hands, we bring your designs to life flawlessly.',
+        },
+      ].map(({ step, desc }, idx) => (
+        <div
+          key={idx}
+          className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-lg transition duration-300"
+        >
+          <div className="w-12 h-12 mb-4 flex items-center justify-center bg-indigo-100 text-indigo-600 text-lg font-bold rounded-full mx-auto">
+            {idx + 1}
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">{step}</h3>
+          <p className="text-gray-600 text-sm">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
     {/* Why Choose Us Section */}
 <section className="py-16 px-4 sm:px-6 lg:px-8">
   <div className="max-w-4xl mx-auto text-center">
@@ -199,6 +243,93 @@ const Dashboard = () => {
     </ul>
   </div>
 </section>
+
+
+{/* Use Cases Section */}
+<section className="bg-gradient-to-b from-white via-gray-50 to-white py-20 px-6">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-12">
+      Perfect For Every Business
+    </h2>
+    <div className="grid md:grid-cols-2 gap-10 text-gray-700 text-base">
+      {[
+        {
+          title: 'Retail Promotions',
+          desc: 'Display flex banners or standees during sales, festivals, or new launches to drive more footfall and visibility.',
+        },
+        {
+          title: 'Corporate Events',
+          desc: 'Make your brand shine with clean, professional backdrops, podium wraps, and event signage.',
+        },
+        {
+          title: 'Exhibitions & Trade Shows',
+          desc: 'Create lasting impressions with eye-catching booths, flex boards, and roll-up banners that reflect your brand identity.',
+        },
+        {
+          title: 'Real Estate & Local Advertising',
+          desc: 'Use durable flex signs and holding boards for ongoing visibility at property sites or local promotions.',
+        },
+      ].map(({ title, desc }, idx) => (
+        <div
+          key={idx}
+          className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 hover:shadow-md transition duration-300"
+        >
+          <h3 className="text-2xl font-semibold text-indigo-600 mb-3">
+            {title}
+          </h3>
+          <p className="text-gray-600 leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+ {/* Materials Section */}
+<section className="bg-white py-20 px-6">
+  <div className="max-w-6xl mx-auto">
+    <div className="mb-12 text-left md:text-center">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+        Premium Materials for Lasting Impact
+      </h2>
+      <p className="text-lg text-gray-600 mt-4 max-w-2xl md:mx-auto">
+        Every print we deliver is crafted using superior-grade materials that ensure long-term durability and unmatched visual quality.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-10 mt-10">
+      <div className="border-l-4 border-indigo-500 pl-6 py-4 hover:shadow-md transition duration-300 bg-gray-50 rounded-md">
+        <h3 className="text-xl font-semibold text-gray-800 mb-1">Eco-Solvent Flex</h3>
+        <p className="text-gray-600">
+          Durable and weatherproof, ideal for eye-catching outdoor advertising that lasts.
+        </p>
+      </div>
+
+      <div className="border-l-4 border-indigo-500 pl-6 py-4 hover:shadow-md transition duration-300 bg-gray-50 rounded-md">
+        <h3 className="text-xl font-semibold text-gray-800 mb-1">Star Flex</h3>
+        <p className="text-gray-600">
+          Features a glossy finish and vibrant color output—perfect for marketing visuals.
+        </p>
+      </div>
+
+      <div className="border-l-4 border-indigo-500 pl-6 py-4 hover:shadow-md transition duration-300 bg-gray-50 rounded-md">
+        <h3 className="text-xl font-semibold text-gray-800 mb-1">Vinyl & Reflective Vinyl</h3>
+        <p className="text-gray-600">
+          Used for premium signage, vehicle wraps, and reflective branding needs.
+        </p>
+      </div>
+
+      <div className="border-l-4 border-indigo-500 pl-6 py-4 hover:shadow-md transition duration-300 bg-gray-50 rounded-md">
+        <h3 className="text-xl font-semibold text-gray-800 mb-1">UV Printing</h3>
+        <p className="text-gray-600">
+          Offers scratch-resistant quality on rigid surfaces like foam boards and acrylic.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
 
 
