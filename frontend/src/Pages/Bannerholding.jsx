@@ -2,8 +2,10 @@ import React from 'react';
 import eventbanner from "../assets/eventbannerholding.jpg";
 import political from "../assets/politicalbanner.jpg";
 import street from "../assets/streetpromotion.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Bannerholding = () => {
+  const navigate = useNavigate();
   const holdingTypes = [
     {
       title: "Event Banner Holding",
@@ -114,7 +116,7 @@ const Bannerholding = () => {
       <section className="bg-white text-green-900 text-center p-10 rounded-xl shadow-lg">
         <h2 className="text-3xl md:text-4xl font-bold mb-3">Need Banner Holding Service?</h2>
         <p className="text-lg mb-5">Book trained banner holders for your next campaign or event now!</p>
-        <button className="bg-green-700 hover:bg-green-800 font-semibold px-8 py-3 rounded-full transition-all text-white">
+        <button className="bg-green-700 hover:bg-green-800 font-semibold px-8 py-3 rounded-full transition-all text-white" onClick={()=>navigate("/contact")}>
           Book Now
         </button>
       </section>

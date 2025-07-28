@@ -5,8 +5,10 @@ import rollup from "../assets/Roll-Up Standees.jpg";
 import retail from "../assets/Retail Flex Signage.webp";
 import political from "../assets/political flex.jpg";
 import flexbanner from "../assets/flex banner.webp";
+import { useNavigate } from 'react-router-dom';
 
 const Flexprinting = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen p-4 md:p-6 bg-gray-50">
       {/* Hero Section */}
@@ -142,7 +144,7 @@ const Flexprinting = () => {
       <section className="bg-red-50 text-red-900 text-center p-8 rounded-xl shadow-md max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold mb-2">Ready to Print Your Flex?</h2>
         <p className="text-sm md:text-base mb-4">Get in touch with us for quick, affordable, and premium flex printing.</p>
-        <button className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-full transition-all">
+        <button className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-full transition-all" onClick={()=>navigate("/contact")}>
           Get a Free Quote
         </button>
       </section>

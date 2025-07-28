@@ -10,6 +10,7 @@ import Ironframe from "./Pages/Ironframe";
 import Letterboard from "./Pages/Letterboard";
 import Welding from "./Pages/Welding";
 import StandeeDesign from "./Pages/StandeeDesign";
+import Contact from "./Pages/Contact";
 
 const App = () => {
   return (
@@ -24,6 +25,8 @@ const App = () => {
         <Route path="/letterboard" element={<Letterboard/>} />
         <Route path="/welding" element={<Welding/>} />
         <Route path="/standee" element={<StandeeDesign/>} />
+        <Route path="/contact" element={<Contact/>} />
+
       </Routes>
       <Footer />
     </div>

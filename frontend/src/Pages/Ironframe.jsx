@@ -2,8 +2,10 @@ import React from 'react';
 import Outdooriron from "../assets/product-jpeg.png";
 import evantframe from "../assets/Wedding-Beads.jpg";
 import shopfront from "../assets/unique-vintage-blank-signage-wrought-iron-bracket-perfect-old-town-shops-unique-vintage-blank-signage-wrought-iron-390118241.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Ironframe = () => {
+  const navigate = useNavigate();
   const services = [
     {
       title: "Outdoor Iron Boards",
@@ -115,7 +117,7 @@ const Ironframe = () => {
       <section className="bg-white text-blue-900 text-center p-10 rounded-xl shadow-lg">
         <h2 className="text-3xl md:text-4xl font-bold mb-3">Need Iron Frame Printing?</h2>
         <p className="text-lg mb-5">Reach out today for fast, professional, and reliable iron board printing service.</p>
-        <button className="bg-blue-700 hover:bg-blue-800 font-semibold px-8 py-3 rounded-full transition-all text-white">
+        <button className="bg-blue-700 hover:bg-blue-800 font-semibold px-8 py-3 rounded-full transition-all text-white" onClick={()=>navigate("/contact")}>
           Request a Quote
         </button>
       </section>

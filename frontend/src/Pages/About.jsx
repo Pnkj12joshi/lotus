@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 
 const About = () => {
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration
+      once: true, // animation only happens once
+    });
+  }, []);
   return (
     <div className="mt-[80px] w-full flex flex-col gap-20 items-center justify-center text-gray-800">
       {/* Header Section */}
-      <section className="max-w-6xl px-4 text-center mt-8">
+      <section className="max-w-6xl px-4 text-center mt-8" data-aos="fade-up">
         <h1 className="text-5xl font-bold text-black mb-6">
           About Lotus Fabrication
         </h1>
@@ -22,7 +30,7 @@ const About = () => {
       </section>
 
       {/* Mission + Vision Section in Grid */}
-      <section className="w-full px-4 max-w-6xl">
+      <section className="w-full px-4 max-w-6xl"  data-aos="fade-up">
         <div className="grid md:grid-cols-2 gap-10">
           {[
             {
@@ -50,7 +58,7 @@ const About = () => {
       </section>
 
       {/* Why Choose Us - Grid Cards */}
-      <section className="w-full px-4 max-w-6xl">
+      <section className="w-full px-4 max-w-6xl"  data-aos="fade-up">
         <h2 className="text-3xl font-bold text-center text-black mb-10">
           Why Choose Lotus Fabrication?
         </h2>
@@ -74,7 +82,7 @@ const About = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-16 px-4">
+      <section className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-16 px-4"  data-aos="fade-up">
         <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 className="text-4xl font-bold">Let’s Talk</h2>
           <p className="mt-3 text-lg">

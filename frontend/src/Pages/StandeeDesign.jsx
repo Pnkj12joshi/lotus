@@ -2,8 +2,10 @@ import React from 'react';
 import eventstandee from "../assets/Event Standees.webp";
 import retail from "../assets/Retail Promotional Standees.webp";
 import productlaunch from "../assets/Product Launch Standees.webp";
+import { useNavigate } from 'react-router-dom';
 
 const StandeeDesign = () => {
+  const navigate = useNavigate();
   const standeeData = [
     {
       title: "Event Standees",
@@ -30,7 +32,8 @@ const StandeeDesign = () => {
           Standee Design & Printing
         </h1>
         <p className="text-lg md:text-xl">
-          Sleek, professional, and impactful standee designs to elevate your brand at events, stores, and exhibitions.
+          Sleek, professional, and impactful standee designs to elevate your
+          brand at events, stores, and exhibitions.
         </p>
       </section>
 
@@ -58,15 +61,23 @@ const StandeeDesign = () => {
 
       {/* Why Choose Our Standees */}
       <section className="bg-white text-purple-800 p-8 rounded-2xl shadow-md max-w-6xl mx-auto mb-16">
-        <h2 className="text-3xl font-bold mb-4 text-center">Why Choose Our Standee Design?</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">
+          Why Choose Our Standee Design?
+        </h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
             <h3 className="text-xl font-semibold mb-2">🎨 Creative Designs</h3>
-            <p>We craft visually appealing standees that grab attention and reflect your brand.</p>
+            <p>
+              We craft visually appealing standees that grab attention and
+              reflect your brand.
+            </p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-2">🖨️ HD Print Quality</h3>
-            <p>Vibrant and crisp print quality on durable materials with fade-resistant ink.</p>
+            <p>
+              Vibrant and crisp print quality on durable materials with
+              fade-resistant ink.
+            </p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-2">👜 Easy to Carry</h3>
@@ -74,14 +85,21 @@ const StandeeDesign = () => {
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-2">⚙️ Custom Sizes</h3>
-            <p>Choose from standard or fully customized dimensions and orientations.</p>
+            <p>
+              Choose from standard or fully customized dimensions and
+              orientations.
+            </p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2">🧩 End-to-End Service</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              🧩 End-to-End Service
+            </h3>
             <p>From design to delivery — we take care of everything.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2">💰 Affordable Pricing</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              💰 Affordable Pricing
+            </h3>
             <p>Premium quality standees at the most competitive rates.</p>
           </div>
         </div>
@@ -92,29 +110,56 @@ const StandeeDesign = () => {
         <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
         <div className="space-y-6">
           <div>
-            <h4 className="text-xl font-semibold">Q: What material do you use?</h4>
-            <p>We use premium vinyl and PP material for durability and visual appeal.</p>
+            <h4 className="text-xl font-semibold">
+              Q: What material do you use?
+            </h4>
+            <p>
+              We use premium vinyl and PP material for durability and visual
+              appeal.
+            </p>
           </div>
           <div>
-            <h4 className="text-xl font-semibold">Q: Can you help with design?</h4>
-            <p>Yes, our design team provides free basic design services with every order.</p>
+            <h4 className="text-xl font-semibold">
+              Q: Can you help with design?
+            </h4>
+            <p>
+              Yes, our design team provides free basic design services with
+              every order.
+            </p>
           </div>
           <div>
-            <h4 className="text-xl font-semibold">Q: What is the turnaround time?</h4>
-            <p>We usually deliver within 24 hours. Express same-day service is also available.</p>
+            <h4 className="text-xl font-semibold">
+              Q: What is the turnaround time?
+            </h4>
+            <p>
+              We usually deliver within 24 hours. Express same-day service is
+              also available.
+            </p>
           </div>
           <div>
-            <h4 className="text-xl font-semibold">Q: Do you deliver outside the city?</h4>
-            <p>Yes, we deliver standees across cities with reliable courier services.</p>
+            <h4 className="text-xl font-semibold">
+              Q: Do you deliver outside the city?
+            </h4>
+            <p>
+              Yes, we deliver standees across cities with reliable courier
+              services.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="bg-white text-purple-900 text-center p-10 rounded-xl shadow-lg">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">Need Stunning Standees?</h2>
-        <p className="text-lg mb-5">Get in touch for premium design and quick printing service!</p>
-        <button className="bg-purple-700 hover:bg-purple-800 font-semibold px-8 py-3 rounded-full transition-all text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          Need Stunning Standees?
+        </h2>
+        <p className="text-lg mb-5">
+          Get in touch for premium design and quick printing service!
+        </p>
+        <button
+          className="bg-purple-700 hover:bg-purple-800 font-semibold px-8 py-3 rounded-full transition-all text-white"
+          onClick={() => navigate("/contact")}
+        >
           Get a Free Quote
         </button>
       </section>

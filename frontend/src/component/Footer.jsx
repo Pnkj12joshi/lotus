@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
-          <h2 className="text-xl font-bold mb-2">Branding Hub</h2>
+          <h2 className="text-xl font-bold mb-2">Lotus Fabrication</h2>
           <p className="text-sm text-gray-300">
             Providing top-quality printing, banner holding, and design solutions
             with precision and professionalism.

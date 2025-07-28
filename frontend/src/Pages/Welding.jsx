@@ -2,8 +2,10 @@ import React from 'react';
 import structurewelding from "../assets/images.jpg";
 import customfabrication from "../assets/customfabrication.jpg";
 import onsitewelding from "../assets/onsitewelding.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Welding = () => {
+  const navigate = useNavigate();
   const weldingTypes = [
     {
       title: "Structural Welding",
@@ -115,7 +117,7 @@ const Welding = () => {
       <section className="bg-blue-50 text-blue-900 text-center p-8 rounded-xl shadow-md max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold mb-2">Need Reliable Welding Services?</h2>
         <p className="text-sm md:text-base mb-4">Contact us today for quick, affordable, and professional welding solutions!</p>
-        <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium px-6 py-2 rounded-full transition-all">
+        <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium px-6 py-2 rounded-full transition-all" onClick={()=>navigate("/contact")}>
           Request a Quote
         </button>
       </section>

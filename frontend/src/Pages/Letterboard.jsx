@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Letterboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen p-6">
       {/* Hero Section */}
@@ -108,7 +110,7 @@ const Letterboard = () => {
       <section className="bg-white text-purple-900 text-center p-10 rounded-xl shadow-lg">
         <h2 className="text-3xl md:text-4xl font-bold mb-3">Start Designing Your Letter Board Today!</h2>
         <p className="text-lg mb-5">Get in touch to customize your letter board exactly the way you want.</p>
-        <button className="bg-purple-700 hover:bg-purple-800 font-semibold px-8 py-3 rounded-full transition-all text-white">
+        <button className="bg-purple-700 hover:bg-purple-800 font-semibold px-8 py-3 rounded-full transition-all text-white" onClick={()=>navigate("/contact")}>
           Order Now
         </button>
       </section>

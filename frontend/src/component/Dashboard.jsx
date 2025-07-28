@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import sliderone from "../assets/eco-solvent-printing-machine-4311410_1280.jpg";
 import slidertwo from "../assets/c-lipped-channel-5528517_1280.jpg";
@@ -8,6 +8,9 @@ import brandtwo from "../assets/gk advertising brands.png";
 import brandthree from "../assets/kgn-publicity brands.jpg";
 import brandfour from "../assets/sk signs brands.png";
 import brandfive from "../assets/holding boards.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -17,7 +20,12 @@ import {
   FaPaintBrush,
   FaBullhorn,
   FaQuoteLeft,
+  FaTools,
+  FaRulerCombined,
+  FaFont,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 const testimonials = [
   {
@@ -68,26 +76,31 @@ const serviceList = [
   {
     icon: <FaBullhorn />,
     title: "Banner Holding",
-    description: "Durable frames and holders for impactful banner displays.",
+    description: "Strong and stable banner holders for all environments.",
   },
   {
-    icon: <FaBullhorn />,
-    title: "Banner Holding",
-    description: "Durable frames and holders for impactful banner displays.",
+    icon: <FaTools />,
+    title: "Welding",
+    description:
+      "Precision welding for custom frames, signage stands, and structural durability.",
   },
   {
-    icon: <FaBullhorn />,
-    title: "Banner Holding",
-    description: "Durable frames and holders for impactful banner displays.",
+    icon: <FaRulerCombined />,
+    title: "Iron Frame",
+    description:
+      "Sturdy iron frames for flex boards, displays, and outdoor installations.",
   },
   {
-    icon: <FaBullhorn />,
-    title: "Banner Holding",
-    description: "Durable frames and holders for impactful banner displays.",
+    icon: <FaFont />,
+    title: "Letter Boards",
+    description:
+      "Stylish and bold letter boards that grab attention and enhance visibility.",
   },
 ];
 
+
 const Dashboard = () => {
+  const navigate = useNavigate();
   const heroSliderSettings = {
     dots: true,
     infinite: true,
@@ -100,9 +113,17 @@ const Dashboard = () => {
     pauseOnHover: true,
   };
 
+
+ useEffect(() => {
+  AOS.init({
+    duration: 1000, // Animation duration in ms
+    once: true,     // Animation happens only once on scroll
+  });
+}, []);
+
   return (
     <div className="mt-24 grid grid-cols-1 gap-20 px-4 lg:px-16">
-<section className="bg-gradient-to-br from-white via-gray-50 to-white rounded-2xl shadow-xl px-6 py-20">
+<section className="bg-gradient-to-br from-white via-gray-50 to-white rounded-2xl shadow-xl px-6 py-20 "  data-aos="fade-up" >
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
     {/* Text Content */}
@@ -113,8 +134,9 @@ const Dashboard = () => {
       <p className="text-lg sm:text-xl text-gray-700">
         We craft vibrant flex prints, eye-catching standees, and strong banners to help your business stand out. Let your brand speak loud and clear with every visual.
       </p>
-      <button className="mt-4 bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300">
-        Let’s Get Started
+      <button className="mt-4 bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300" onClick={()=>navigate("/contact")}>
+         Let’s Get Started
+       
       </button>
     </div>
 
@@ -146,23 +168,37 @@ const Dashboard = () => {
 </section>
 
 
+     {/* Vision Section - Updated */}
+<section className="bg-gray-50 py-20 px-6 rounded-2xl shadow-inner" data-aos="fade-up">
+  <div className="max-w-5xl mx-auto text-center space-y-8">
+    <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-800 leading-tight">
+      <span className="text-red-500">Crafting Your Vision</span> – From Print to Precision
+    </h2>
+    <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+      We turn your concepts into impactful visuals with premium printing,
+      durable fabrication, and expert service — ensuring your brand leaves a lasting impression.
+    </p>
+  <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
+  <a
+    href="#services"
+    className="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-red-600 transition duration-300 text-center"
+  >
+    Explore Services
+  </a>
+  <a
+    onClick={()=>navigate('/contact')}
+    className="border border-red-500 text-red-500 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition duration-300 text-center"
+  >
+    Contact Us
+  </a>
+</div>
 
+  </div>
+</section>
 
-      {/* Vision Section */}
-      <section className="text-center max-w-8xl mx-auto grid gap-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 w-full">
-          Crafting Your Vision – From Print to Precision
-        </h1>
-        <p className="text-gray-700 text-lg md:text-xl">
-          We take pride in transforming your concepts into reality with
-          unmatched quality and attention to detail. Our dedication to premium
-          printing, sturdy fabrication, and professional service ensures your
-          brand makes a lasting impression.
-        </p>
-      </section>
 
       {/* Services Section */}
-      <section className="bg-gray-100 py-16 px-4 rounded-xl">
+      <section id="services" className="bg-gray-100 py-16 px-4 rounded-xl" data-aos="fade-up">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-blue-700">Our Top Services</h2>
           <p className="text-gray-600 mt-4 text-lg">
@@ -177,7 +213,7 @@ const Dashboard = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-white via-gray-50 to-white py-20 px-6">
+      <section className="bg-gradient-to-br from-white via-gray-50 to-white py-20 px-6" data-aos="fade-up">
   <div className="max-w-6xl mx-auto text-center">
     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
       Our Printing Process
@@ -223,7 +259,7 @@ const Dashboard = () => {
 
 
     {/* Why Choose Us Section */}
-<section className="py-16 px-4 sm:px-6 lg:px-8">
+<section className="py-16 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
   <div className="max-w-4xl mx-auto text-center">
     <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-10">
       Why Choose Us?
@@ -246,7 +282,7 @@ const Dashboard = () => {
 
 
 {/* Use Cases Section */}
-<section className="bg-gradient-to-b from-white via-gray-50 to-white py-20 px-6">
+<section className="bg-gradient-to-b from-white via-gray-50 to-white py-20 px-6" data-aos="fade-up">
   <div className="max-w-6xl mx-auto">
     <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-12">
       Perfect For Every Business
@@ -285,7 +321,7 @@ const Dashboard = () => {
 </section>
 
  {/* Materials Section */}
-<section className="bg-white py-20 px-6">
+<section className="bg-white py-20 px-6" data-aos="fade-up">
   <div className="max-w-6xl mx-auto">
     <div className="mb-12 text-left md:text-center">
       <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
@@ -311,7 +347,7 @@ const Dashboard = () => {
         </p>
       </div>
 
-      <div className="border-l-4 border-indigo-500 pl-6 py-4 hover:shadow-md transition duration-300 bg-gray-50 rounded-md">
+      <div className="border-l-4 border-indigo-500 pl-6 py-4 hover:shadow-md transition duration-300 bg-gray-50 rounded-md" >
         <h3 className="text-xl font-semibold text-gray-800 mb-1">Vinyl & Reflective Vinyl</h3>
         <p className="text-gray-600">
           Used for premium signage, vehicle wraps, and reflective branding needs.
@@ -334,7 +370,7 @@ const Dashboard = () => {
 
 
       {/* Testimonials */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white py-16 px-4" data-aos="fade-up">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
           What Our Customers Say
         </h2>
@@ -369,7 +405,7 @@ const Dashboard = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="bg-gray-50 py-16 px-4">
+      <section className="bg-gray-50 py-16 px-4" data-aos="fade-up">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
           Our Trusted Clients
         </h2>
@@ -405,58 +441,6 @@ const Dashboard = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="bg-gradient-to-br from-red-500 to-red-700 text-white py-16 px-6 rounded-xl">
-        <div className="text-center max-w-5xl mx-auto mb-10">
-          <h2 className="text-4xl font-bold">Let’s Work Together</h2>
-          <p className="mt-4 text-lg w-full">
-            Have a question or need a custom quote? Fill out the form below —
-            we’d love to hear from you.
-          </p>
-        </div>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert("Form submitted!");
-          }}
-          className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 bg-white text-gray-800 p-8 rounded-xl shadow-lg"
-        >
-          <input
-            type="text"
-            placeholder="Enter your name"
-            required
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-          />
-          <input
-            type="email"
-            placeholder="Enter your email"
-            required
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-          />
-          <input
-            type="tel"
-            placeholder="Enter your phone number"
-            maxLength={10}
-            pattern="\\d{10}"
-            inputMode="numeric"
-            required
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-          />
-          <textarea
-            rows="5"
-            placeholder="Write your message..."
-            required
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none md:col-span-2"
-          ></textarea>
-          <div className="md:col-span-2 flex justify-center">
-            <button
-              type="submit"
-              className="bg-red-500 text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-red-600 transition duration-300"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
     </div>
   );
 };
